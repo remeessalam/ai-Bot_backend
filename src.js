@@ -19,11 +19,11 @@ const ai = async (requestData) => {
 // console.log(text);
 app.post("/", async (req, res) => {
   const requestData = req?.body?.Promt;
-  console.log(requestData, "req come here");
   const response = await ai(requestData);
+  console.log(response, "req come here");
   res.send({ result: response });
 });
 
-app.listen(3000, () => {
-  console.log("app listen in port no : 3000");
+app.listen(process.env.PORT_NUMBER, () => {
+  console.log("app listen in port no :" + process.env.PORT_NUMBER);
 });
